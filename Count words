@@ -1,0 +1,20 @@
+import java.util.Scanner;
+public class WordCount {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        String s = sc.nextLine();
+        String[] str = s.split(" ");
+        String st="aeiou";
+        int c = 0;
+        for (String i : str) {
+            if (i.length()!=0) {
+                char f = Character.toLowerCase(i.charAt(0));
+                char l = Character.toLowerCase(i.charAt(i.length() - 1));
+                if (st.indexOf(f) != -1 && st.indexOf(l)==-1) {
+                    c++;
+                }
+            }
+        }
+        System.out.println(c);
+    }
+}
