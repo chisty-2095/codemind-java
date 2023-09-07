@@ -1,0 +1,36 @@
+import java.util.Scanner;
+public class ReverseEvenPositionalWords {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String inputStr = scanner.nextLine();
+
+        // Call the function to reverse even positional words
+        String outputStr = reverseEvenPositionalWords(inputStr);
+        System.out.println(outputStr);
+    }
+        public static String reverseEvenPositionalWords(String inputStr) {
+        // Split the input string into words
+        String[] words = inputStr.split(" ");
+
+        // Initialize a StringBuilder to store the modified words
+        StringBuilder result = new StringBuilder();
+
+        // Iterate through the words and reverse the words at even positions
+        for (int i = 0; i < words.length; i++) {
+            if (i % 2 == 0) {
+                // Reverse the word at even position
+                StringBuilder reversedWord = new StringBuilder(words[i]);
+                result.append(reversedWord.reverse());
+              } else {
+                // Keep the word at odd position unchanged
+                result.append(words[i]);
+            }
+
+            // Add a space between words
+            result.append(" ");
+        }
+
+        // Convert the StringBuilder to a string and trim any extra spaces
+        return result.toString().trim();
+    }
+}
